@@ -126,10 +126,11 @@ _.prototype = {
 		}
 		else { // Element or CSS selector
 			list = $(list);
+			var options = list.getElementsByTagName('option');
 
-			if (list && list.children) {
+			if (list && options && options.length) {
 				var items = [];
-				slice.apply(list.children).forEach(function (el) {
+				slice.apply(options).forEach(function (el) {
 					if (!el.disabled) {
 						var text = el.textContent.trim();
 						var value = el.value || text;
